@@ -8,6 +8,7 @@ This web application offers a user-friendly interface for managing personal sett
 To run this project on your local machine, follow the installation instructions provided.
 
 
+
 ```bash
   npm install react-router-dom
 ```
@@ -23,6 +24,15 @@ To run this project on your local machine, follow the installation instructions 
 ```
 ```bash
   npm install nodemon
+```
+--To Run the Backend
+```bash
+  nodemon index.js
+```
+
+--To Run the Application
+```bash
+  npm start
 ```
 
 
