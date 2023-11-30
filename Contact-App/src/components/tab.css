@@ -1,0 +1,16 @@
+.tabl{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+    margin: 150px;
+    margin-top:100px ;
+}
+.trr{
+    background-color: rgb(165, 139, 139)
+}
+.dataa{
+    align-items:center;
+    text-align: center;
+}
