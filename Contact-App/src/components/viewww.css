@@ -1,7 +1,23 @@
 .dataaa{
-    height: auto;
+    /* height: 100%; */
+    /* width: 100%; */
     background-color: beige;
-    width: 50%;
-    margin: auto;
+    width: 40%;
+    padding: 40px;
+    /* margin: auto; */
+    /* margin-top: 0px; */
+    font-size: larger;
+    /* float: left; */
+    /* justify-content: center; */
+}
+.mai{
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    background-color: rgb(234, 241, 239);
+}
+.bol{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

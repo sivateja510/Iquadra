@@ -3,13 +3,17 @@ import './login.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Watermark from './Watermark';
 const Login = () => {
     const [log, setlog] = useState(false);
     const [reg, setreg] = useState(false);
     const [usename, setusname] = useState('');
     const [usepwd, setpwd] = useState('');
     const navigate = useNavigate();
+    // useEffect(()=>{
+    //     if(!localStorage.getItem('Loginn'))
+    //       navigate('/')
+    //   })
     const [users, setUsers] = useState('');
     const handlechange = (e) => {
         // console.log(e.target.value)
@@ -35,6 +39,103 @@ const Login = () => {
     useEffect(() => {
         getUsers();
     }, []);
+
+    const [friends, setFriends] = useState([]);
+const [relatives, setRelatives] = useState([]);
+
+const getFriendsData = async () => {
+    try {
+        const response = await fetch('http://localhost:8090/friends', {
+            method: 'GET'
+        });
+        const result = await response.json();
+        console.log(result);
+        setFriends(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getRelativesData = async () => {
+    try {
+        const response = await fetch('http://localhost:8090/relatives', {
+            method: 'GET'
+        });
+        const result = await response.json();
+        console.log(result);
+        setRelatives(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+useEffect(() => {
+    getFriendsData();
+}, []);
+
+useEffect(() => {
+    getRelativesData();
+}, []);
+const [office, setOffice] = useState([]);
+const [neighbours, setNeighbours] = useState([]);
+const [business, setBusiness] = useState([]);
+
+const getOfficeData = async () => {
+    try {
+        const response = await fetch('http://localhost:8090/office', {
+            method: 'GET'
+        });
+        const result = await response.json();
+        console.log(result);
+        setOffice(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getNeighboursData = async () => {
+    try {
+        const response = await fetch('http://localhost:8090/neighbours', {
+            method: 'GET'
+        });
+        const result = await response.json();
+        console.log(result);
+        setNeighbours(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getBusinessData = async () => {
+    try {
+        const response = await fetch('http://localhost:8090/business', {
+            method: 'GET'
+        });
+        const result = await response.json();
+        console.log(result);
+        setBusiness(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+useEffect(() => {
+    getOfficeData();
+}, []);
+
+useEffect(() => {
+    getNeighboursData();
+}, []);
+
+useEffect(() => {
+    // localStorage.clear();
+    getBusinessData();
+}, []);
+
+// Combine the data
+const combinedData = [...friends, ...relatives,...office, ...neighbours, ...business];
+// localStorage.setItem("entire",JSON.stringify(combinedData));
+
     
     const handleLogin = (e) => {
         // e.preventDefault();
@@ -48,7 +149,8 @@ const Login = () => {
             localStorage.removeItem('data');
         }
         else{
-            localStorage.setItem('data',JSON.stringify(userr));
+            localStorage.setItem('Loginn',JSON.stringify(userr));
+            localStorage.setItem("entire",JSON.stringify(combinedData));
             window.alert(localStorage.getItem('data'));
             setlog(true);
         }
@@ -58,7 +160,6 @@ const Login = () => {
         // e.preventDefault();
         setreg(true);
         
-        
     }
     if (log) {
         navigate('/Home');
@@ -67,6 +168,8 @@ const Login = () => {
         navigate('/Signup');
     }
     return (
+        <>
+        <Watermark />
         <div className='container'>
             <div className='login-container'>
                 <div className='login'>
@@ -93,6 +196,7 @@ const Login = () => {
 
             </div>
         </div>
+        </>
     )
 }
 

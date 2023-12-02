@@ -45,7 +45,7 @@
     padding-top:0px ;
     height:250px;
     /* background-color: #cac8c8; */
-    background:linear-gradient(165deg,#EECDA3,#EF629F)
+    background:linear-gradient(165deg,#d2c9b6,#a156c9)
   }
   .large-icon {
     font-size: 7rem;
@@ -53,4 +53,8 @@
 
   .boxes:hover{
     cursor: pointer;
+  }
+
+  .barr{
+width: 25%;
   }

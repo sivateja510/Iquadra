@@ -13,6 +13,7 @@ const Nav=()=>{
     navigate('/Profile')
   }
   const logouttt=(e)=>{
+    localStorage.removeItem('Loginn');
     setlog(true);
   }
   if(log)

@@ -1,29 +1,65 @@
 import React from "react";
 import Nav from "./Nav";
-import'./viewww.css'
-;import { useState } from "react";
-const Vieww =()=>{
+import './viewww.css'
+import { useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+const Vieww = () => {
     // const [data,setdata]=useState("");
-    if(localStorage.getItem('view')==null)
-    {
-        window.alert("dataa");
+    const [data, setData] = useState(null);
+    const navigate=useNavigate();
+    useEffect(() => {
+        const fetchData = () => {
+            // Check if 'view' key exists in local storage
+            const storedData = localStorage.getItem('view');
+            if (storedData) {
+                const parsedData = JSON.parse(storedData);
+                setData(parsedData);
+            } else {
+                window.alert("No data found in local storage");
+            }
+        };
+
+        fetchData(); // Call the function inside useEffect
+
+    }, []);
+
+    const[bac,setbac]=useState(false);
+    const back=()=>{
+        setbac(true);
     }
-    else{
-        const dataa=JSON.parse(localStorage.getItem('view'));
-        console.log(dataa);
-        // setdata(dataa);
+    const [bacc, setbacc] = useState(null);
+
+    if(bac){
+
+        const s=localStorage.getItem('back');
+        if(s)
+        {
+            localStorage.removeItem('back');
+            localStorage.removeItem('view');
+            navigate('/'+s);
+        }
+        
     }
-    return(
+    return (
         <>
-        <Nav/>
-        {/* <p>hello</p> */}
-        <div className="dataaa">
-        <p>Name:John</p>
-        <p>Mobile:7660917546</p>
-        <p>Place:Kakinada</p>
-        <p>DOB:04-06-2012</p>
-        <p>Email:John@gmail.com</p>
-        </div>
+            <Nav />
+            {/* <p>hello</p> */}
+            <div className="mai">
+                <div className="dataaa">
+                    {data && (
+                        <>
+                            <p><strong>Name:</strong> {data.name}</p>
+                            <p><strong>Mobile:</strong> {data.mobile}</p>
+                            <p><strong>Place:</strong> {data.address}</p>
+                            <p><strong>DOB:</strong> {data.dob}</p>
+                            <p><strong>Email:</strong> {data.email}</p>
+                        </>
+                    )}
+                </div>
+                <button onClick={back}> Back </button>
+            </div>
+
         </>
     )
 }

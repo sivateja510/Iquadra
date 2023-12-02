@@ -5,8 +5,13 @@ import '../components/tab.css';
 import Vieww from "./Vieww";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
+import Watermark from "./Watermark";
 const Tab = (props) => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
+    // useEffect(()=>{
+    //     if(!localStorage.getItem('Loginn'))
+    //       navigate('/')
+    //   })
     // const handleView = (item) => {
     //     // Implement your logic for handling the "View" action here
     //     console.log('View button clicked for:', item);
@@ -38,17 +43,31 @@ const Tab = (props) => {
     useEffect(() => {
         getTopics();
     }, []);
-    const [vi,setvi]=useState(false);
-    const handleView=(e)=>{
-        localStorage.setItem('view',JSON.stringify(e));  
-        navigate('/View');      
+    const [vi, setvi] = useState(false);
+    const handleView = (e) => {
+        localStorage.setItem('view', JSON.stringify(e));
+        localStorage.setItem('back', props.top);
+        navigate('/View');
+    }
+    const handleEdit=(e)=>{
+        localStorage.setItem('edit',JSON.stringify(e));
+        localStorage.setItem('back', props.top);
+        navigate('/Edit');
+    }
+    const [bacs, setbacs] = useState(false);
+    const backk = (e) => {
+        setbacs(true);
+    }
+    if (bacs) {
+        navigate('/Home')
     }
 
 
 
     return (
         <>
-        <h1 className="he">{props.top} </h1>
+        <Watermark />
+            <h1 className="he">{props.top} </h1>
             <div className="tabl">
                 <table>
                     <thead>
@@ -66,13 +85,17 @@ const Tab = (props) => {
                                 <td>{item.mobile}</td>
                                 <td>{item.address}</td>
                                 <td>
-                                    <button onClick={()=> handleView(item)}>View</button>
+                                    <button onClick={() => handleView(item)}>View</button>
+                                    <button onClick={() => handleEdit(item)}>Edit</button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                <button onClick={backk} >Back</button>
+
             </div>
+            
         </>
     )
 }

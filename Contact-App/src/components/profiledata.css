@@ -7,6 +7,11 @@
 {
     width: 100%;
     height: 100%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .nav-bar
 {
@@ -29,6 +34,11 @@
 {
     margin-top: 70px;
     padding: 20px;
+    width: 80%;
+    gap: 20px;
+    /* margin: auto; */
+    /* align-items: center; */
+    text-align: left;
 }
 .profile-content h2{
     color: blueviolet;
