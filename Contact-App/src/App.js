@@ -13,6 +13,9 @@ import Office from './components/Office';
 import Neighbours from './components/Neighbours';
 import Business from './components/Business';
 import Vieww from './components/Vieww';
+import EditCons from './components/EditCons';
+import Task from './components/Task';
+import Gotask from './components/Gotask';
 function App() {
   return (
     <>
@@ -30,7 +33,8 @@ function App() {
       <Route path='/Neighbours' element={<Neighbours/>}/>
       <Route path='/Business' element={<Business/>}/>
       <Route path='/View' element={<Vieww/>}/>
-      {/* <Route path='/Relatives' element={<Relatives/>}/> */}
+      <Route path='/Edit' element={<EditCons/>}/>
+      <Route path='/Task' element={<Gotask/>}/>
     </Routes>
     </BrowserRouter>
     </>

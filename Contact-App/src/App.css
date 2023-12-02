@@ -1,0 +1,146 @@
+
+
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.containerr {
+  margin: auto;
+  background-color: #ebd6d6;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* max-width: 800px; */
+}
+.row{
+  flex-direction: column;
+  margin: auto;
+  width: 80%;
+  align-items: center;
+  /* text-align: center; */
+}
+/* h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40;
+} */
+
+form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.primary {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+button.secondary {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+
+button.danger {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.completed {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.navb{
+  /* height: 25px; */
+  /* width: 100hw; */
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  background-color: #c2e3bf;;
+}
+
+.headd{
+  flex-direction: column;
+  margin: auto;
+}
+.btn-secondary{
+  margin: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .containerr {
+    margin: auto;
+    background-color: #ebd6d6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 800px; */
+  }
+  .row{
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    align-items: center;
+    /* text-align: center; */
+  }
+}
+
