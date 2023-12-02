@@ -66,12 +66,68 @@ server.get('/business',(req,res)=>
     });
 })
 
-server.post('/entry',(req,res)=>{
-    const data=db.get('ques')
-    // console.log(req.body.username);
-    data.insert({username:req.body.username,Email:req.body.email,Password:req.body.password});
+server.post('/Logins',(req,res)=>{
+    const data=db.get('Logins');
+    data.insert({username:req.body.email,Name:req.body.username,Password:req.body.password,Mobile:req.body.mobile,Address:req.body.address,DOB:req.body.dob,imr:req.body.imr});
     // console.log(userData);
-})
+});
+
+const Loginss=db.get('Logins');
+server.post('/Loginss',(req,res)=>{
+    const data=db.get('Logins');
+    data.update({username:req.body.username},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+
+const Contacte=db.get('friends');
+server.post('/Contacte',(req,res)=>{
+    const data=db.get('friends');
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+
+
+const Busines=db.get('business');
+server.post('/Busines',(req,res)=>{
+    const data=db.get('business');
+    window.alert("updates")
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+
+const College=db.get('colleague');
+server.post('/College',(req,res)=>{
+    const data=db.get('colleague');
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+
+const Nebiours=db.get('neighbours');
+server.post('/Nebiours',(req,res)=>{
+    const data=db.get('neighbours');
+    window.alert(req.body);
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+
+const Offace=db.get('office');
+server.post('/Offace',(req,res)=>{
+    const data=db.get('office');
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
+const Relats=db.get('relatives');
+server.post('/Relats',(req,res)=>{
+    const data=db.get('relatives');
+    console.log(data);
+    data.update({name:req.body.name},{$set:req.body}).then((resu)=>console.log(resu))
+    
+});
   
 server.listen(PORT, (error) =>{
     if(!error)
